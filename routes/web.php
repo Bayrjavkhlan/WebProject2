@@ -3,13 +3,22 @@
  
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use Inertia\Inertia;
  
 use App\Http\Controllers\HomeController;
  
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/view', [HomeController::class, 'view']);
+
+Route::get('/test',function(){
+    return Inertia::render('test');
+});
  
+Route::get('/hello', function () {
+    return Inertia::render('HelloReact');});
 Auth::routes();
    
 //Normal Users Routes List
